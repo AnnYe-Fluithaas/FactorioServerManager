@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
     path('', include('social_django.urls')),
-    path('auth/', include('auth0login.urls')),
+    path("graphql", GraphQLView.as_view(graphiql=True)), #Set this to false if you do not want to use the GraphiQL API browser
 ]

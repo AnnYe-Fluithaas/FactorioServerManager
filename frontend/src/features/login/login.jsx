@@ -1,13 +1,13 @@
 ﻿import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
-const LOGIN_STATUS = gql`query Query { auth { whoAmI } }`
+const LOGIN_STATUS = gql`query GetCurrentUser { username }`
 
 export function LoginPip() {
     const { loading, error, data } = useQuery(LOGIN_STATUS);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
-    const currentLogin = data.auth.whoAmI;
+    const currentLogin = data.username;
     if (currentLogin === "") {
         return <p><a href="/Account/Login">Login</a></p>;
     } else {

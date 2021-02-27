@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('APP_SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('APP_DEBUG', "")) in ('True', 'true', 'yes', 't', '1', 'y')
 
-ALLOWED_HOSTS = ['api']
+ALLOWED_HOSTS = ['api', 'localhost']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,12 @@ DATABASES = {
     }
 }
 
+# GraphAPI
+
+GRAPHENE = {
+    "SCHEMA": "FactorioServerManager.GraphQL.schema.schema"
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -108,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = {
-    'FactorioServerManager.auth0backend.Auth0',
+    'FactorioServerManager.auth0backend.Auth0', 
     'django.contrib.auth.backends.ModelBackend'
 }
 

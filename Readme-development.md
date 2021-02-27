@@ -17,14 +17,16 @@ A second Docker Compose file is added that allows browsing the data in redis and
 
 You can browse the **postgres** database via pgAdmin by connecting to `http://localhost:8082`
 
+You can test our the **GraphQL** queries by connection to `http://localhost:8080/graphql`
+
 ## Development Architecture
-* Frontend application: **Javascript React**
+* Frontend application: **Javascript React**  
 * Backend application: **Python Django**
+* Communication between frontend and backend: **GraphQL** (Using Graphene library in Django, Apollo Client in React)
 * Database: **Postgres SQL** and **Redis**
 
 ### Folder structure
 **FactorioServerManager** -- The main Django project. Includes overall settings.  
-**auth0login** -- supporting Django app. Handles authentication.  
 **calendars** -- supporting Django app. Handles calendars.  
 **frontend** -- React app. Handles the frontend and .html pages.  
 **games** -- supporting Django app.  
